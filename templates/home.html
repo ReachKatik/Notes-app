@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Notes - Home{% endblock %}
+<!-- block content helps dynamically add details to the html page -->
+{% block content%}
+<div class="content">
+    <div class="left">
+        <h2 class="name">Welcome, {{user.fname}}</h2>
+        <p>Add your notes and access them when you need.</p>
+    </div>
+    <div class="notes">
+        <form method="POST">
+            <textarea name="note" id="note" placeholder="Start typing..."></textarea>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <!-- <img src="{{ url_for('static', filename='Notes.gif') }}" alt="notes"> -->
+</div>
+<!-- <div class="notes">
+    <form method="POST">
+        <textarea name="note" id="note" placeholder="Start typing..."></textarea>
+        <button type="submit">Add</button>
+    </form>
+</div> -->
+{% if user.notes|length != 0 %}
+<h2 class="notes-list-heading">Your notes</h2>
+<div class="notes-list">
+    {% for note in user.notes %}
+    <div class="note-item">
+        <div class="note-info">
+            <small>{{ note.formatted_date() }} EST</small>
+            <span class="material-symbols-outlined" title="delete" id="delete" onClick="deleteNote({{ note.id }})">
+                delete
+            </span>
+        </div>
+        
+        <div class="note-data">
+            {{note.data}}
+        </div>
+    </div>
+
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+<!--  always add endblock -->
+
+ <!-- <small>Created on: {{ note.date.strftime('%Y-%m-%d %H:%M') }}</small> 
+            2024-106-18 22:20 
+            -->
+            <!-- <small>Created on: {{ note.date.strftime('%a, %b-%d-%Y %I:%M %p') }}</small> 
+            Tue, Jun-18-2024 10:39 PM 
+            -->
+            <!-- <small>{{ note.date.strftime('%a, %b %d, %Y %I:%M %p') }}</small> 
+            Tue, Jun 18, 2024 10:39 PM 
+            -->

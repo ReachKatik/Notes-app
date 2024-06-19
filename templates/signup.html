@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
+<!-- block content helps dynamically add details to the html page -->
+{% block content%}
+
+<form class="signup" method="post">
+  <h3>Sign up for an account to start adding notes.</h3>
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter your email address"
+    />
+    <label for="fname">First Name</label>
+    <input
+      type="text"
+      name="fname"
+      id="fname"
+      placeholder="Enter your first name"
+    />
+    <label for="password1">Password</label>
+    <input
+      type="password"
+      name="password1"
+      id="password1"
+      placeholder="Enter your password"
+    />
+    <label for="password2">Confirm Password</label>
+    <input
+      type="password"
+      name="password2"
+      id="password2"
+      placeholder="Re-type your password"
+    />
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+
+{% endblock %}
+<!--  always add endblock -->

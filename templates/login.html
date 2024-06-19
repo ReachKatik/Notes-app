@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+<!-- block content helps dynamically add details to the html page -->
+{% block content%}
+<form class="login" method="post">
+    <h3>Log in to your account</h3>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email address"
+      />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+      />
+      
+      <button type="submit">Log In</button>
+    </div>
+  </form>
+  
+
+{% endblock %}
+<!--  always add endblock -->
